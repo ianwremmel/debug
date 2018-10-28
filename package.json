@@ -22,7 +22,7 @@
     "lint:js": "npm run --silent eslint -- .",
     "lint:types": "tsc",
     "semantic-release": "semantic-release",
-    "test": "echo 'no tests specified'; exit 1"
+    "test": "echo 'this package does not have tests'"
   },
   "engines": {
     "node": ">=10"
