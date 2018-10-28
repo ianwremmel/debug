@@ -47,4 +47,5 @@ PRs Welcome
 
 ## License
 
-[MIT](LICENSE) &copy; [Ian Remmel](https://github.com/ianwremmel) 2018 until at least now
+[MIT](LICENSE) &copy; [Ian Remmel](https://github.com/ianwremmel) 2018 until at
+least now
