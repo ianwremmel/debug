@@ -1,7 +1,7 @@
 {
   "name": "@ianwremmel/debug",
   "version": "0.0.0-development",
-  "description": "",
+  "description": "Simplified naming for 'debug'",
   "bin": {},
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
