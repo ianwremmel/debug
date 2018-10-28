@@ -79,5 +79,8 @@
       "commit-msg": "commitlint -e",
       "pre-commit": "lint-staged"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
