@@ -3,7 +3,9 @@ import {dirname, sep, extname} from 'path';
 
 import _debug from 'debug';
 import invariant from 'invariant';
-import {sync as pkgup} from 'pkg-up';
+// pkg-up is an `export = ` default which breaks import/default
+// eslint-disable-next-line import/default
+import pkgUp from 'pkg-up';
 
 /**
  * Simplified naming for 'debug'
@@ -19,7 +21,10 @@ export function debug(filename: string) {
   invariant(filename, '$filename is required');
   invariant(typeof filename === 'string', '$filename must be a string');
 
-  const pkgPath = pkgup(filename);
+  const pkgPath = pkgUp.sync({cwd: dirname(filename)});
+  if (!pkgPath) {
+    throw new Error('Could not determine package path');
+  }
   const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'));
   const packageName = pkg.name;
   const unscopedPackageName = packageName.includes('/')
