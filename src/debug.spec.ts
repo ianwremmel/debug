@@ -6,6 +6,8 @@ describe('debug', () => {
     d.enabled = true;
 
     const spy = jest.spyOn(process.stderr, 'write');
+    spy.mockReset();
+
     d('bar');
     // reminder: colors are disabled in package.json because they will be
     // disabled automatically in CI
@@ -17,5 +19,7 @@ describe('debug', () => {
         ],
       ]
     `);
+
+    spy.mockClear();
   });
 });
