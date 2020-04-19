@@ -1,5 +1,8 @@
 extends:
-  - "plugin:@ianwremmel/ianwremmel/node"
+  - 'plugin:@ianwremmel/ianwremmel/node'
+  - 'prettier'
+  - 'prettier/@typescript-eslint'
+  - 'plugin:import/typescript'
 
 overrides:
   - files:
@@ -10,6 +13,16 @@ overrides:
       jest: true
     rules:
       require-jsdoc: off
+  - files:
+      - '**/*.ts'
+    parser: '@typescript-eslint/parser'
+    parserOptions:
+      project: './tsconfig.json'
+      sourceType: 'module'
 
 parserOptions:
-  sourceType: "module"
+  sourceType: 'script'
+
+plugins:
+  - '@typescript-eslint'
+  - 'babel'

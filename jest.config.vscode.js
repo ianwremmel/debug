@@ -1,3 +1,5 @@
+'use strict';
+
 process.env.TZ = 'UTC';
 
 const config = require('./jest.config');
