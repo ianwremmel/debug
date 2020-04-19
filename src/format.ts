@@ -3,8 +3,6 @@ import chalk from 'chalk';
 
 /**
  * Colorizes variables based on type and returns them as chalked strings.
- * @param value
- * @returns {string}
  */
 export function colorize(value: any) {
   if (!supportsColor) {
@@ -36,8 +34,6 @@ export function colorize(value: any) {
  * Template string tag
  * @example
  * f`this is my fancy string with variables like ${true} ${1} ${@ianwremmel/debug}`
- * @param literals
- * @param placeholders
  */
 export function format(literals: TemplateStringsArray, ...placeholders: any[]) {
   return literals.reduce((str, literal, index) => {

@@ -17,10 +17,10 @@
     "build:esm": "BUILD_TARGET=esm npm run compile",
     "build:readme": "markdown-toc -i --bullets='-' --maxdepth=3  README.md  && prettier --write README.md",
     "compile": "babel -d dist/${BUILD_TARGET} src",
-    "eslint": "eslint --ignore-path .gitignore --ignore-pattern dist",
+    "eslint": "eslint ${ESLINT_FORMAT_OPTIONS:-''} --ignore-path .gitignore --ignore-pattern dist --ext .js --ext .ts",
     "lint": "npm-run-all lint:*",
     "lint:changelog": "commitlint --from origin/master --to HEAD",
-    "lint:js": "npm run --silent eslint -- .",
+    "lint:es": "npm run --silent eslint -- .",
     "lint:types": "tsc",
     "semantic-release": "semantic-release",
     "test": "DEBUG_COLORS=false DEBUG_HIDE_DATE=true jest"
