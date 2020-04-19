@@ -1,2 +1,3 @@
-export {debug} from './debug';
-export {colorize, format} from './format';
+export * from './debug';
+export * from './format';
+export * from './template';

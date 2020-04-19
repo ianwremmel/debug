@@ -31,11 +31,45 @@ npm install @ianwremmel/debug
 
 ## Usage
 
-```js
-import {debug as d, format as f} from '@ianwremmel/debug';
-const debug = d(__filename);
-debug(f`${5} is a number`);
-debug(f`${true} is a boolean`);
+This package exports three helpers for making it easier to use the `debug`
+package.
+
+### debug
+
+`debug()` wraps `debug()` from the debug package and accepts a string. That
+strings should be `__filename`. It first starts with your package name, then it
+uses the relative path from your `package.json` to the current file to setup a
+debug namespace, replacing `/` with `:`.
+
+```ts
+import {debug} from '@ianwremmel/debug';
+const d = debug(__filename);
+d('Something happened');
+```
+
+### format
+
+`format` is a template string tag that colorizes your variable substitutions. It
+doesn't need to be used with `debug()` but it does make `debug()`'s output
+easier to read (or, at least more entertaining).
+
+```ts
+import {debug, format as f} from '@ianwremmel/debug';
+const d = debug(__filename);
+d(f`${5} is a number`);
+d(f`${true} is a boolean`);
+```
+
+### df
+
+`df()` is factory that produces a template string tag that combines `debug()`
+and `format`.
+
+```ts
+import {df} from '@ianwremmel/debug';
+const d = df(__filename);
+d`${5} is a number`;
+d`${true} is a boolean`;
 ```
 
 ## Maintainer
