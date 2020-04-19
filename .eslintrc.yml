@@ -1,4 +1,15 @@
 extends:
   - "plugin:@ianwremmel/ianwremmel/node"
+
+overrides:
+  - files:
+      - '**/*.spec.*'
+      - 'test/jest/spec/**/*'
+      - '**/__mocks__/**/*'
+    env:
+      jest: true
+    rules:
+      require-jsdoc: off
+
 parserOptions:
   sourceType: "module"
