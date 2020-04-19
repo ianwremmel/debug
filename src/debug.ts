@@ -12,11 +12,10 @@ import {sync as pkgup} from 'pkg-up';
  * const d = debug(__filename);
  * const x = 2;
  * d(format`${true} ${x}`);
- * @param {string} filename - pass `__filename` to keep your debug strings
- * consistent accross you project
- * @returns {_debug.IDebugger}
+ * @param filename - pass `__filename` to keep your debug strings consistent
+ * across you project.
  */
-export function debug(filename) {
+export function debug(filename: string) {
   invariant(filename, '$filename is required');
   invariant(typeof filename === 'string', '$filename must be a string');
 

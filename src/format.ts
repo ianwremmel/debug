@@ -3,10 +3,10 @@ import chalk from 'chalk';
 
 /**
  * Colorizes variables based on type and returns them as chalked strings.
- * @param {any} value
+ * @param value
  * @returns {string}
  */
-export function colorize(value) {
+export function colorize(value: any) {
   if (!supportsColor) {
     return `"${value}"`;
   }
@@ -36,11 +36,10 @@ export function colorize(value) {
  * Template string tag
  * @example
  * f`this is my fancy string with variables like ${true} ${1} ${@ianwremmel/debug}`
- * @param {TemplateStringsArray} literals
- * @param  {...any} placeholders
- * @returns {string}
+ * @param literals
+ * @param placeholders
  */
-export function format(literals, ...placeholders) {
+export function format(literals: TemplateStringsArray, ...placeholders: any[]) {
   return literals.reduce((str, literal, index) => {
     const placeholder = placeholders[index];
     if (!placeholder) {
