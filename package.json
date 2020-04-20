@@ -16,14 +16,15 @@
     "build:cjs": "BUILD_TARGET=cjs npm run compile",
     "build:esm": "BUILD_TARGET=esm npm run compile",
     "build:readme": "markdown-toc -i --bullets='-' --maxdepth=3  README.md  && prettier --write README.md",
-    "compile": "babel -d dist/${BUILD_TARGET} src",
+    "compile": "babel -x .ts -d dist/$BUILD_TARGET src && npm run tsb --silent",
     "eslint": "eslint ${ESLINT_FORMAT_OPTIONS:-''} --ignore-path .gitignore --ignore-pattern dist --ext .js --ext .ts",
     "lint": "npm-run-all lint:*",
     "lint:changelog": "commitlint --from origin/master --to HEAD",
     "lint:es": "npm run --silent eslint -- .",
-    "lint:types": "tsc",
+    "lint:types": "tsc --noEmit",
     "semantic-release": "semantic-release",
-    "test": "DEBUG_COLORS=false DEBUG_HIDE_DATE=true jest"
+    "test": "DEBUG_COLORS=false DEBUG_HIDE_DATE=true jest",
+    "tsb": "tsc --declarationDir dist/$BUILD_TARGET --declaration --emitDeclarationOnly"
   },
   "engines": {
     "node": ">=10"
